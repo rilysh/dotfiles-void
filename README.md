@@ -1,17 +1,17 @@
 ## dotfiles
-This is my dotfiles for XFCE desktop enviornment and Void Linux
+This is my dotfiles for the XFCE desktop environment and Void Linux
 
 ## Installation
 #### Distro
-Make sure you're running Void Linux latest version. Grab the iso of Void Linux from [here](https://voidlinux.org/).\
-After installation invoke these commands mentioned below.
+Make sure you're running Void Linux's latest version. Grab the iso of Void Linux from [here](https://voidlinux.org/).\
+After installation invokes these commands mentioned below.
 ```sh
 xbps-install -Su xbps
 xbps-install -Su
 ```
 
 #### Essential packages
-Void Linux doesn't comes with bunch of packages, all extensions releated XFCE DE aren't preinstalled. We need to install them manually.
+Void Linux doesn't come with a bunch of packages, all extensions related to XFCE DE aren't preinstalled. We need to install them manually.
 ```sh
 xbps-install -S xfce4-pulseaudio-plugin xfce4-screenshooter xfce4-whiskermenu-plugin
 ```
@@ -32,7 +32,7 @@ xbps-install -S wget curl nano vim unzip xz
 ```
 
 #### Setup lightdm
-By default Void Linux uses lxdm login manager, however, it's not pretty obviously, so here we'll use lightdm.
+By default Void Linux uses lxdm login manager, however, it's not pretty obvious, so here we'll use lightdm.
 ```sh
 xbps-install -S lightdm lightdm-gtk3-greeter lightdm-gtk-greeter-settings
 ```
@@ -49,7 +49,7 @@ ln -s /etc/lightdm/ /var/lib/lightdm
 Note: If the screen goes black reboot and try to remove lxdm, and never create lightdm-gtk-greeter service without purging lxdm first.
 
 
-#### Install themes, icons and fonts
+#### Install themes, icons, and fonts
 Instead moving themes, icons and fonts files globally we'll create `.themes`, `.icons` and `.fonts` directory in the user directory. It's also convenient for each user accounts.
 ```sh
 mkdir ~/.themes
@@ -57,14 +57,14 @@ mkdir ~/.icons
 mkdir ~/.fonts
 ```
 ###### Themes
-Download Orchis gtk theme from [here](https://www.xfce-look.org/p/1357889) and extract the archive to `~/.themes` directory. Goto apperence and now change theme to Orchis-Dark and as well change the window manager to theme Orchis-Dark.
+Download Orchis gtk theme from [here](https://www.xfce-look.org/p/1357889) and extract the archive to the `~/.themes` directory. Goto appearance and now change the theme to Orchis-Dark and as well change the window manager to the theme Orchis-Dark.
 
 ###### Icons
-Download Papirus icon theme from [here](https://www.xfce-look.org/p/1166289/) and extract the archive to `~/.icons` directory. Goto apperence and now select Papirus-Dark. 
-Note: If icon theme changes are failed to load or you're unable to change at that moment update the icon cache with `gtk-update-icon-cache` tool or logout and login again.
+Download the Papirus icon theme from [here](https://www.xfce-look.org/p/1166289/) and extract the archive to the `~/.icons` directory. Goto appearance and now select Papirus-Dark. 
+Note: If icon theme changes are failed to load or you're unable to change at that moment update the icon cache with `gtk-update-icon-cache` tool or log out and log in again.
 
 ###### Fonts
-In Void there won't be also extra fonts preinstalled (only necessary ones). We need to install bunch of fonts for better experience. 
+In Void, there won't be also extra fonts preinstalled (only necessary ones). We need to install a bunch of fonts for a better experience. 
 ```sh
 xbps-install -S noto-fonts-emoji noto-fonts-ttf noto-fonts-ttf-extra noto-fonts-cjk ttf-ubuntu-font-family
 
@@ -97,7 +97,7 @@ fc-cache -f
 ```
 
 #### Install neofetch
-Neofetch is available in Void package repo but we'll only use latest version pulled from GitHub
+Neofetch is available in the Void package repo but we'll only use the latest version pulled from GitHub
 ```sh
 mkdir /opt/neofetch
 curl https://raw.githubusercontent.com/dylanaraps/neofetch/master/neofetch --output neofetch
@@ -107,8 +107,8 @@ ln -s /opt/neofetch /usr/sbin/neofetch
 ```
 
 #### Setup oh-my-zsh
-ZSH is an amazing shell, but we need to configure according our purpose.
-Install ZSH by invoking below command
+ZSH is an amazing shell, but we need to configure it according to our purpose.
+Install ZSH by invoking the below command
 ```sh
 xbps-install -S zsh
 ```
@@ -122,11 +122,11 @@ source ~/.zshrc
 ```
 
 #### Install Node.js
-Node.js is JavaScript interpreter, and an optional step. We'll use nvm to install nodejs
+Node.js is a JavaScript interpreter and an optional step. We'll use nvm to install nodejs
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
-Export the path of nvm directory
+Export the path of the nvm directory
 ```sh
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -145,7 +145,7 @@ npm i --location=global yarn pnpm typescript eslint
 ```
 
 #### Install VSCode
-Download VSCode latest version and install
+Download VSCode's latest version and install
 ```sh
 curl https://code.visualstudio.com/sha/download?build=stable&os=linux-x64 --output code.tar.gz
 tar xf code.tar.gz
@@ -156,7 +156,7 @@ source ~/.bashrc
 ```
 
 #### Install Tor Browser
-Download Tor browser from the official Tor browser website. (Version depends on the download URL, so you may need to change for each release)
+Download the Tor browser from the official Tor browser website. (Version depends on the download URL, so you may need to change it for each release)
 
 ```sh
 curl https://www.torproject.org/dist/torbrowser/11.5.2/tor-browser-linux64-11.5.2_en-US.tar.xz --output tor_browser.tar.xz
@@ -182,7 +182,14 @@ StartupNotify=true
 EOF
 ```
 
-#### Other devtools
+#### Settings
+Now to apply change your applications and default fonts
+- For the window manager "titlebar" select DejaVu Sans Mono Book
+- Goto appearance and uncheck "Show images on buttons"
+- Open Firefox, go to the general tab and see fonts in there, select advanced, and now set Proportional font "Sans Serif", Serif "Fira Sans", Sans-Serif "Fira Sans", Monospace "DejaVu Sans Mono". Set the proportional font size 14 and monospace 12.
+
+
+#### Other dev tools
 These tools are also options
 ```sh
 xbps-install -S git gcc ruby base-devel ruby-build ruby-devel
