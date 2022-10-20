@@ -91,5 +91,9 @@ mv VSCode-linux-x64 /opt
 export PATH=/opt/VSCode-linux-x64/bin:$PATH
 source ~/.zshrc
 
+# Install protonvpn
+xbps-install -S protonvpn-cli
+protonvpn init
+
 # Development tools
 xbps-install -S git gcc ruby base-devel ruby-build ruby-devel
